@@ -5,8 +5,7 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="ddeboer_vatin.validator"
-                 class="Ddeboer\VatinBundle\Validator\Constraints\VatinValidator">
+        <service id="ddeboer_vatin.validator" class="Ddeboer\VatinBundle\Validator\Constraints\VatinValidator">
             <argument type="service" id="ddeboer_vatin.vatin_validator" />
             <tag name="validator.constraint_validator" alias="ddeboer_vatin.validator" />
         </service>
@@ -15,5 +14,4 @@
         </service>
         <service id="ddeboer_vatin.vies.client" class="Ddeboer\Vatin\Vies\Client" />
     </services>
-
 </container>

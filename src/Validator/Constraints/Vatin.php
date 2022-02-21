@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ddeboer\VatinBundle\Validator\Constraints;
 
@@ -18,22 +18,19 @@ class Vatin extends Constraint
     /**
      * Vatin constructor.
      *
-     * @param array|null  $options
-     * @param string|null $message
-     * @param bool|null   $checkExistence
-     * @param array|null  $groups
-     * @param null        $payload
+     * @param null $payload
      */
     public function __construct(
-        array $options = null,
-        string $message = null,
-        bool $checkExistence = null,
-        array $groups = null,
+        ?array $options = null,
+        ?string $message = null,
+        ?bool $checkExistence = null,
+        ?array $groups = null,
         $payload = null
     ) {
         if ($message) {
             $options['message'] = $message;
         }
+
         if ($checkExistence) {
             $options['checkExistence'] = $checkExistence;
         }

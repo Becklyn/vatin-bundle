@@ -1,6 +1,8 @@
-vendor/
-composer.lock
-Tests/Functional/app/cache
-.idea
+/.php-cs-fixer.cache
+/.php_cs.cache
 /.phpunit.result.cache
-/var/
+/composer.lock
+/studio.json
+/vendor
+/vendor-bin/*/composer.lock
+/vendor-bin/*/vendor
