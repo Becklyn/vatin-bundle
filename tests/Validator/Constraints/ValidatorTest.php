@@ -1,6 +1,6 @@
 <?php
 
-namespace Ddeboer\VatinBundle\Tests\Validator\Constraints;
+namespace Tests\Ddeboer\VatinBundle\Validator\Constraints;
 
 use Ddeboer\Vatin\Validator;
 use Ddeboer\VatinBundle\Validator\Constraints\Vatin;
@@ -9,33 +9,37 @@ use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 
 class ValidatorTest extends ConstraintValidatorTestCase
 {
-    protected function createValidator()
+    protected function createValidator () : VatinValidator
     {
         return new VatinValidator(new Validator());
     }
 
-    public function testNullIsValid()
+
+    public function testNullIsValid () : void
     {
         $this->validator->validate(null, new Vatin());
 
         $this->assertNoViolation();
     }
 
-    public function testEmptyStringIsValid()
+
+    public function testEmptyStringIsValid () : void
     {
         $this->validator->validate('', new Vatin());
 
         $this->assertNoViolation();
     }
 
-    public function testValid()
+
+    public function testValid () : void
     {
         $this->validator->validate('NL123456789B01', new Vatin());
 
         $this->assertNoViolation();
     }
 
-    public function testInvalid()
+
+    public function testInvalid () : void
     {
         $this->validator->validate('123', new Vatin());
 
@@ -43,10 +47,10 @@ class ValidatorTest extends ConstraintValidatorTestCase
             ->assertRaised();
     }
 
-    public function testValidWithExistence()
+
+    public function testValidWithExistence () : void
     {
-        $validator = $this->getMockBuilder(Validator::class)
-            ->getMock();
+        $validator = $this->getMockBuilder(Validator::class)->getMock();
 
         $validator->expects($this->once())
             ->method('isValid')
@@ -62,6 +66,6 @@ class ValidatorTest extends ConstraintValidatorTestCase
         $this->validator->validate('NL123456789B01', $constraint);
 
         $this->buildViolation('This is not a valid VAT identification number')
-            ->assertRaised();
+             ->assertRaised();
     }
 }

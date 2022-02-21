@@ -1,6 +1,6 @@
 <?php
 
-namespace Ddeboer\VatinBundle\Tests\Functional;
+namespace Tests\Ddeboer\VatinBundle\Functional;
 
 use Ddeboer\VatinBundle\Validator\Constraints\Vatin;
 

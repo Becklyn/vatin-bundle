@@ -3,6 +3,7 @@
 /.phpunit.result.cache
 /composer.lock
 /studio.json
+/var/
 /vendor
 /vendor-bin/*/composer.lock
 /vendor-bin/*/vendor

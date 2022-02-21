@@ -12,33 +12,41 @@ use Symfony\Component\Validator\Constraint;
 #[\Attribute(\Attribute::TARGET_PROPERTY | \Attribute::IS_REPEATABLE)]
 class Vatin extends Constraint
 {
-    public $message = 'This is not a valid VAT identification number';
-    public $checkExistence = false;
+    public string $message = 'This is not a valid VAT identification number';
+    public bool $checkExistence = false;
+
 
     /**
      * Vatin constructor.
      *
      * @param null $payload
      */
-    public function __construct(
+    public function __construct (
         ?array $options = null,
         ?string $message = null,
         ?bool $checkExistence = null,
         ?array $groups = null,
         $payload = null
-    ) {
-        if ($message) {
+    )
+    {
+        if ($message)
+        {
             $options['message'] = $message;
         }
 
-        if ($checkExistence) {
+        if ($checkExistence)
+        {
             $options['checkExistence'] = $checkExistence;
         }
 
         parent::__construct($options ?? [], $groups, $payload);
     }
 
-    public function validatedBy()
+
+    /**
+     * @inheritDoc
+     */
+    public function validatedBy () : string
     {
         return 'ddeboer_vatin.validator';
     }

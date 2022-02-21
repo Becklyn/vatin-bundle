@@ -36,7 +36,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Ddeboer\\VatinBundle\\Tests\\": "tests"
+            "Tests\\Ddeboer\\VatinBundle\\": "tests"
         }
     },
     "config": {
